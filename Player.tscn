@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bygkw5kmecg5g"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_7vfbj"]
+[ext_resource type="Texture2D" uid="uid://fd11ig5vjsiq" path="res://Textures/AIChan.png" id="2_5t3pd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mbnix"]
+radius = 33.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_7vfbj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mbnix")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_5t3pd")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="RayLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-64, 0)
+
+[node name="RayDown" type="RayCast2D" parent="."]
+target_position = Vector2(0, 64)
+
+[node name="RayRight" type="RayCast2D" parent="."]
+target_position = Vector2(64, 0)
+
+[node name="RayUp" type="RayCast2D" parent="."]
+target_position = Vector2(0, -64)

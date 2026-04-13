@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt3oms0t1vnpq"]
+
+[ext_resource type="Script" path="res://dungeon_exit.gd" id="1_8rx7q"]
+[ext_resource type="Texture2D" uid="uid://dcgl8wfsn0qvp" path="res://Textures/stairs.png" id="2_nocyi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_egoue"]
+size = Vector2(65, 65)
+
+[node name="DungeonExit" type="Node2D"]
+script = ExtResource("1_8rx7q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_nocyi")
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+shape = SubResource("RectangleShape2D_egoue")
+debug_color = Color(0.962899, 3.08037e-06, 0.501884, 0.42)
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
