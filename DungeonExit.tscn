@@ -20,4 +20,12 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_egoue")
 debug_color = Color(0.962899, 3.08037e-06, 0.501884, 0.42)
 
+[node name="Win" type="RichTextLabel" parent="."]
+visible = false
+offset_left = -40.0
+offset_top = -96.0
+offset_right = 48.0
+offset_bottom = -56.0
+text = "You win!"
+
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
