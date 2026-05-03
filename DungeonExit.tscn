@@ -1,31 +1,63 @@
-[gd_scene load_steps=4 format=3 uid="uid://bt3oms0t1vnpq"]
+[gd_scene format=3 uid="uid://bt3oms0t1vnpq"]
 
-[ext_resource type="Script" path="res://dungeon_exit.gd" id="1_8rx7q"]
+[ext_resource type="Script" uid="uid://cjgekcacjjfcp" path="res://dungeon_exit.gd" id="1_8rx7q"]
 [ext_resource type="Texture2D" uid="uid://dcgl8wfsn0qvp" path="res://Textures/stairs.png" id="2_nocyi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_egoue"]
 size = Vector2(65, 65)
 
-[node name="DungeonExit" type="Node2D"]
+[node name="DungeonExit" type="Node2D" unique_id=1535509398]
 script = ExtResource("1_8rx7q")
+next_scene_path = "res://Dungeon2.tscn"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=371500182]
 texture = ExtResource("2_nocyi")
 
-[node name="PlayerDetector" type="Area2D" parent="."]
+[node name="PlayerDetector" type="Area2D" parent="." unique_id=48095081]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" unique_id=1383507251]
 shape = SubResource("RectangleShape2D_egoue")
 debug_color = Color(0.962899, 3.08037e-06, 0.501884, 0.42)
 
-[node name="Win" type="RichTextLabel" parent="."]
+[node name="Win" type="CanvasLayer" parent="." unique_id=1284431881]
+process_mode = 3
 visible = false
-offset_left = -40.0
-offset_top = -96.0
-offset_right = 48.0
-offset_bottom = -56.0
-text = "You win!"
+
+[node name="WinLabel" type="Label" parent="Win" unique_id=1836612108]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -102.0
+offset_right = 102.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "You escaped the dungeon!"
+
+[node name="NextButton" type="Button" parent="Win" unique_id=963424440]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Next Dungeon"
+
+[node name="RestartButton" type="Button" parent="Win" unique_id=759569810]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_right = 81.0
+offset_bottom = 15.5
+grow_vertical = 2
+text = "Try Again"
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="pressed" from="Win/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="Win/RestartButton" to="." method="_on_restart_button_pressed"]
