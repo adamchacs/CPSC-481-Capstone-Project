@@ -33,11 +33,11 @@ func enemy_penalty(cell: Vector2i, enemies: Array) -> int:
 		var enemy_cell := world_to_grid(enemy.global_position)
 		var dist := heuristic(cell, enemy_cell)
 		if dist == 0:
-			penalty += 1000
-		elif dist == 1:
 			penalty += 50
+		elif dist == 1:
+			penalty += 20
 		elif dist == 2:
-			penalty += 15
+			penalty += 5
 	return penalty
 
 func is_inside_search_area(cell: Vector2i, start: Vector2i, goal: Vector2i) -> bool:
