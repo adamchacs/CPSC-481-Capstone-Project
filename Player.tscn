@@ -4,9 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://fd11ig5vjsiq" path="res://Textures/AIChan.png" id="2_5t3pd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mbnix"]
-radius = 33.0
+radius = 28.0713
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 7
+collision_mask = 7
 script = ExtResource("1_7vfbj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -19,12 +21,16 @@ texture = ExtResource("2_5t3pd")
 
 [node name="RayLeft" type="RayCast2D" parent="."]
 target_position = Vector2(-64, 0)
+collision_mask = 5
 
 [node name="RayDown" type="RayCast2D" parent="."]
 target_position = Vector2(0, 64)
+collision_mask = 5
 
 [node name="RayRight" type="RayCast2D" parent="."]
 target_position = Vector2(64, 0)
+collision_mask = 5
 
 [node name="RayUp" type="RayCast2D" parent="."]
 target_position = Vector2(0, -64)
+collision_mask = 5

@@ -17,6 +17,8 @@ func monsterTurn():
 	#Determine how far the player is from itself and move in the direction it is furthest away in.
 	#If the enemy cant advance in the desired direction, move in the other direction or a random one
 	if $Right.is_colliding():
+		# If the monster cannot move, still finish its turn so the game does not freeze.
+		emit_signal("monster_turn_taken")
 		return
 	desired_dir = Vector2.RIGHT
 	move()
