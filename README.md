@@ -30,14 +30,14 @@ For Linux, unzip it and run the Godot executable.
 3. Select **Extract All** or **Unzip**.
 4. Open the extracted folder.
 
-##4.  Open the Project in Godot
+## 4.  Open the Project in Godot
 1.Open Godot.
 2.Click Import.
 3.Click Browse.
 4.Find the extracted project folder.
 5.Select the file 
 
-##5. Run the Game
+## 5. Run the Game
 1.In Godot, open the scene:
 Dungeon2.tscn
 2. Click the Play button in the top-right corner. The game should start running.
