@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://b2awbjejpcg3g"]
+
+[ext_resource type="Script" uid="uid://b32s07i1ime10" path="res://title_screen.gd" id="1_pkhjh"]
+[ext_resource type="LabelSettings" uid="uid://dx330rixvvrae" path="res://new_label_settings.tres" id="2_pkhjh"]
+
+[node name="TitleScreen" type="Control" unique_id=547987346]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pkhjh")
+
+[node name="Label" type="Label" parent="." unique_id=1960029330]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -195.0
+offset_top = 127.0
+offset_right = 194.0
+offset_bottom = 160.0
+grow_horizontal = 2
+text = "A.I. Mystery Dungeon"
+label_settings = ExtResource("2_pkhjh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=176243156]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.5
+offset_top = -59.5
+offset_right = 89.5
+offset_bottom = 59.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dungeon1" type="Button" parent="VBoxContainer" unique_id=605592841]
+layout_mode = 2
+text = "Dungeon 1"
+
+[node name="Dungeon2" type="Button" parent="VBoxContainer" unique_id=641421984]
+layout_mode = 2
+text = "Dungeon 2"
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=1940550970]
+layout_mode = 2
+text = "Exit Game"
+
+[connection signal="pressed" from="VBoxContainer/Dungeon1" to="." method="_on_dungeon_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/Dungeon2" to="." method="_on_dungeon_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cjgekcacjjfcp" path="res://dungeon_exit.gd" id="1_8rx7q"]
 [ext_resource type="Texture2D" uid="uid://dcgl8wfsn0qvp" path="res://Textures/stairs.png" id="2_nocyi"]
+[ext_resource type="LabelSettings" uid="uid://dx330rixvvrae" path="res://new_label_settings.tres" id="3_7e7dw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_egoue"]
 size = Vector2(65, 65)
@@ -29,11 +30,13 @@ visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -102.0
-offset_right = 102.0
-offset_bottom = 23.0
+offset_left = -225.0
+offset_top = 36.0
+offset_right = 255.0
+offset_bottom = 69.0
 grow_horizontal = 2
 text = "You escaped the dungeon!"
+label_settings = ExtResource("3_7e7dw")
 
 [node name="NextButton" type="Button" parent="Win" unique_id=963424440]
 anchors_preset = 6
@@ -58,6 +61,15 @@ offset_bottom = 15.5
 grow_vertical = 2
 text = "Try Again"
 
+[node name="Button" type="Button" parent="Win" unique_id=595535229]
+offset_left = 605.0
+offset_top = 545.0
+offset_right = 703.0
+offset_bottom = 576.0
+size_flags_vertical = 8
+text = "Quit Game"
+
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="pressed" from="Win/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="Win/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Win/Button" to="." method="_on_button_pressed"]

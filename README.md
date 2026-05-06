@@ -41,4 +41,3 @@ For Linux, unzip it and run the Godot executable.
 1. In Godot, open the scene:
 Dungeon2.tscn
 2. Click the Play button in the top-right corner. The game should start running.
-

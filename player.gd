@@ -39,6 +39,14 @@ func move() -> void:
 		return
 	if !moving:
 		moving  = true
+		if(input_dir == Vector2(-1.0, 0.0)):
+			$Sprite2D.play("move_left")
+		elif(input_dir == Vector2(0.0, -1.0)):
+			$Sprite2D.play("move_up")
+		elif(input_dir == Vector2(1.0,0.0)):
+			$Sprite2D.play("move_right")
+		else:
+			$Sprite2D.play("move_down")
 		myTurn  = false
 		var tween := create_tween()
 		tween.tween_property(self, "position", position + input_dir * 64, 0.35)
